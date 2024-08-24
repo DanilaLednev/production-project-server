@@ -1,6 +1,7 @@
 const fs = require('fs');
 const jsonServer = require('json-server');
 const path = require('path');
+require('dotenv').config();
 
 const server = jsonServer.create();
 
@@ -44,6 +45,6 @@ server.use((req, res, next) => {
 server.use(router);
 
 // запуск сервера
-server.listen(8000, () => {
+server.listen(process.env.port || 8000, () => {
   console.log('server is running on 8000 port');
 });
